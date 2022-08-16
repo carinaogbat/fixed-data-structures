@@ -41,7 +41,7 @@ def get_villagers_by_species(filename, search_string="All"):
 
     return sorted(villagers)
 
-get_villagers_by_species("villagers.csv", "Hippo")
+print(get_villagers_by_species("villagers.csv", "Bird"))
 
 
 def all_names_by_hobby(filename):
@@ -79,7 +79,7 @@ def all_names_by_hobby(filename):
 
     return [ sorted(fitness), sorted(nature), sorted(education), sorted(music), sorted(fashion), sorted(play) ]
 
-all_names_by_hobby("villagers.csv")
+# print(all_names_by_hobby("villagers.csv"))
 
 def all_data(filename):
     """Return all the data in a file.
