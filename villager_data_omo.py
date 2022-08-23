@@ -51,15 +51,26 @@ def all_names_by_hobby(filename):
             hobby_and_names[hobby] = hobby_and_names[hobby] + [names]
         else:
             hobby_and_names[hobby] = [names]
+  
     return hobby_and_names
 
-print(all_names_by_hobby('villagers.csv'))
+# print(all_names_by_hobby('villagers.csv'))
 
 
 
 def all_data(filename):
     """Return all the data in file as a list of tuples"""
     #list[tuple[str]]
+    file = open(filename)
+    villager_data = []
+    for line in file:
+        villager_data.append(tuple(line.rstrip().split('|')))
+        
+    return villager_data
+
+print(all_data('villagers.csv'))
+
+
 
 
 def find_motto(filename, villager_name):
