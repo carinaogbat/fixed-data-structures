@@ -24,11 +24,37 @@ def get_villagers_by_species(filename, search_string='All'):
     return sorted(villagers_by_species)
 
 
+# def get_villagers_by_species_dict(filename, search_string='All'):
+#     """Takes in name of file and name of species, returns names of all villagers of that species
+#     in alphabetical order, trying as dictionary"""
+#     file = filename
+#     villagers_by_species = {}
+#     for line in file:
+#         char = line.rstrip().split('|')
+#         name = char[0]
+#         species = char[1]
+#         if search_string == species:
+#             villagers_by_species[species] = name
+#     return villagers_by_species
+# print(get_villagers_by_species_dict('villagers.csv', 'Bird'))
+
 
 
 def all_names_by_hobby(filename):
     """Returns list of villagers with names grouped by hobby"""
     #should be list with 6 lists list[list[string]]
+    file = open(filename)
+    hobby_and_names = {}
+    for line in file:
+        names, _, _, hobby, _ = line.rstrip().split('|')
+        if hobby in hobby_and_names:
+            hobby_and_names[hobby] = hobby_and_names[hobby] + [names]
+        else:
+            hobby_and_names[hobby] = [names]
+    return hobby_and_names
+
+print(all_names_by_hobby('villagers.csv'))
+
 
 
 def all_data(filename):
